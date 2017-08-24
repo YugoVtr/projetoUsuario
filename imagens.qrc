@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Imagens/cpf.png</file>
+        <file>Imagens/email.png</file>
+        <file>Imagens/password.png</file>
+        <file>Imagens/user.png</file>
+        <file>Imagens/fone.png</file>
+    </qresource>
+</RCC>
