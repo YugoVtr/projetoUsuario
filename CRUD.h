@@ -1,21 +1,22 @@
 #ifndef CRUD_H
 #define CRUD_H
+
+#include <iterator>
 #include <queue>
-#include <QString>
-#include <QStringList>
-#include "Usuario.h"
 
 namespace PBD {
     class CRUD;
 }
+
+template <class Tipo>
 class CRUD
 {
 public:
-    ~CRUD(){}
-    virtual void salvar(const Usuario &usuario) = 0;
-    virtual void alterar(const Usuario &usuario) = 0;
-    virtual void excluir(const Usuario &usuario) = 0;
-    virtual std::queue<Usuario>* listar() = 0;
+    virtual void salvar(const Tipo &obj) = 0;
+    virtual void alterar(const Tipo &obj) = 0;
+    virtual void excluir(const Tipo &obj) = 0;
+    virtual std::queue<Tipo>* listar() = 0;
+
 };
 
 #endif // CRUD_H

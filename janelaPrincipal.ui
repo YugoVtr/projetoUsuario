@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>378</width>
+    <width>461</width>
     <height>607</height>
    </rect>
   </property>
@@ -21,7 +21,27 @@
        <string>Usuario</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0" colspan="2">
+       <item row="1" column="2">
+        <widget class="QPushButton" name="pushButtonCancelar">
+         <property name="text">
+          <string>Cancelar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0" colspan="4">
         <layout class="QGridLayout" name="gridLayout">
          <item row="1" column="0">
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -305,19 +325,6 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="1" column="1">
         <widget class="QPushButton" name="pushButton_PersistirUsuario">
          <property name="maximumSize">
@@ -332,15 +339,10 @@
         </widget>
        </item>
       </layout>
-      <zorder>pushButton_PersistirUsuario</zorder>
       <zorder>horizontalSpacer</zorder>
-      <zorder>label_Nome_img</zorder>
-      <zorder>label_Cpf_img</zorder>
-      <zorder>label_Email_img</zorder>
-      <zorder>lineEdit_Cpf</zorder>
       <zorder></zorder>
-      <zorder>label_Senha_img</zorder>
-      <zorder>label_Telefone_img</zorder>
+      <zorder>pushButtonCancelar</zorder>
+      <zorder>pushButton_PersistirUsuario</zorder>
      </widget>
     </item>
     <item row="1" column="0">
@@ -354,7 +356,45 @@
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QTableWidget" name="tableWidget_Listagem"/>
+     <widget class="QTableWidget" name="tableWidget_Listagem">
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Nome</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>CPF</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>E-mail</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Telefone</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string/>
+       </property>
+      </column>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -363,8 +403,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>378</width>
-     <height>20</height>
+     <width>461</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -379,6 +419,16 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit_Nome</tabstop>
+  <tabstop>lineEdit_Cpf</tabstop>
+  <tabstop>lineEdit_Senha</tabstop>
+  <tabstop>lineEdit_Email</tabstop>
+  <tabstop>lineEdit_Telefone</tabstop>
+  <tabstop>pushButton_PersistirUsuario</tabstop>
+  <tabstop>pushButtonCancelar</tabstop>
+  <tabstop>tableWidget_Listagem</tabstop>
+ </tabstops>
  <resources>
   <include location="imagens.qrc"/>
  </resources>
