@@ -4,8 +4,10 @@ UsuarioPersistencia::UsuarioPersistencia()
 {
     try
     {
-        banco = QSqlDatabase::addDatabase("QSQLITE");
-        banco.setDatabaseName("C:/Users/celso/Desktop/bancoUsuario.db");
+        //Ao instanciar a persistencia inicia-se a conexão com o banco
+        //definido no arquivo de configuração.
+        banco = QSqlDatabase::addDatabase(Configuracao::getDataBase());
+        banco.setDatabaseName(Configuracao::getDataBaseName());
 
         if(!banco.open()) {
             throw QString(banco.lastError().text());
@@ -19,10 +21,11 @@ UsuarioPersistencia::~UsuarioPersistencia()
     banco.close();
 }
 
-void UsuarioPersistencia::salvar(const Usuario &obj)
+void UsuarioPersistencia::salvar(Usuario &obj)
 {
     try
     {
+        //A classe QSqlQuery executa requisições ao SGBD
         QSqlQuery execQuery;
         execQuery.prepare("INSERT INTO Usuario(nome,cpf,email,telefone,senha) VALUES "
                         "(:nome,:cpf,:email,:telefone,:senha)");
@@ -39,20 +42,19 @@ void UsuarioPersistencia::salvar(const Usuario &obj)
     } catch (QString &erro) { throw QString(erro); }
 }
 
-void UsuarioPersistencia::alterar(const Usuario &obj)
+void UsuarioPersistencia::alterar(Usuario &obj)
 {
     try
     {
         QSqlQuery execQuery;
         execQuery.prepare("UPDATE Usuario SET "
                         "nome = :nome, cpf = :cpf,email = :email,"
-                        "telefone = :telefone,senha = :senha "
+                        "telefone = :telefone "
                         "WHERE cpf = :cpf");
         execQuery.bindValue(":nome",obj.getNome());
         execQuery.bindValue(":cpf",obj.getCpf());
         execQuery.bindValue(":email",obj.getEmail());
         execQuery.bindValue(":telefone",obj.getTelefone());
-        execQuery.bindValue(":senha",obj.getSenha());
 
         if(!execQuery.exec())
         {
@@ -61,7 +63,7 @@ void UsuarioPersistencia::alterar(const Usuario &obj)
     } catch (QString &erro) { throw QString(erro); }
 }
 
-void UsuarioPersistencia::excluir(const Usuario &obj)
+void UsuarioPersistencia::excluir(Usuario &obj)
 {
     try
     {
@@ -88,6 +90,8 @@ Usuario UsuarioPersistencia::buscarUsuario(const QString &cpf)
             throw QString(queryExec.lastError().text());
         }
 
+        //A classe QSqlRecord encapsula a funcionalidade e as características
+        //de uma gravação de banco de dados (geralmente uma linha em uma tabela ou exibição no banco de dados).
         QSqlRecord rec = queryExec.record();
 
         queryExec.next();
@@ -110,7 +114,7 @@ std::queue<Usuario> *UsuarioPersistencia::listar()
 {
     try
     {
-        QString query = "select * from Usuario";
+        QString query = "SELECT * FROM Usuario";
 
         QSqlQuery queryExec;
         if(!queryExec.exec(query))

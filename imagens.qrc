@@ -6,5 +6,7 @@
         <file>Imagens/fone.png</file>
         <file>Imagens/delete.png</file>
         <file>Imagens/cpf.png</file>
+        <file>Imagens/alterar.png</file>
+        <file>Imagens/salvar.png</file>
     </qresource>
 </RCC>

@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QCryptographicHash>
+#include <QValidator>
 #include "UsuarioControle.h"
 
 namespace Ui {

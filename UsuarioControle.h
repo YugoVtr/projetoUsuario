@@ -8,6 +8,7 @@ namespace PBD {
     class UsuarioControle;
 }
 
+//Classe de Controle
 class UsuarioControle : public CRUD<Usuario>
 {
 private:
@@ -16,9 +17,9 @@ private:
 public:
     UsuarioControle();
     ~UsuarioControle();
-    void salvar(const Usuario &obj);
-    void alterar(const Usuario &obj);
-    void excluir(const Usuario &obj);
+    void salvar(Usuario &obj);
+    void alterar(Usuario &obj);
+    void excluir(Usuario &obj);
 
     void validaNome(const QString &nome) const;
     void validaCpf(const QString &cpf) const;

@@ -28,13 +28,15 @@ SOURCES += main.cpp\
         janelaPrincipal.cpp \
     Usuario.cpp \
     UsuarioControle.cpp \
-    UsuarioPersistencia.cpp
+    UsuarioPersistencia.cpp\
+    Configuracao.cpp
 
 HEADERS  += janelaPrincipal.h \
     Usuario.h \
     UsuarioControle.h \
     UsuarioPersistencia.h \
-    CRUD.h
+    CRUD.h \
+    Configuracao.h
 
 FORMS    += janelaPrincipal.ui
 

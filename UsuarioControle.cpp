@@ -1,9 +1,11 @@
 #include "UsuarioControle.h"
 
-UsuarioControle::UsuarioControle():
-    persistencia(new UsuarioPersistencia)
+UsuarioControle::UsuarioControle()
 {
-
+    try
+    {
+        persistencia = new UsuarioPersistencia;
+    } catch (QString &erro) { throw QString(erro); }
 }
 
 UsuarioControle::~UsuarioControle()
@@ -11,7 +13,7 @@ UsuarioControle::~UsuarioControle()
     delete persistencia;
 }
 
-void UsuarioControle::salvar(const Usuario &obj)
+void UsuarioControle::salvar( Usuario &obj)
 {
     try
     {
@@ -20,24 +22,27 @@ void UsuarioControle::salvar(const Usuario &obj)
         this->validaSenha(obj.getSenha());
         this->validaEmail(obj.getEmail());
 
+        //Codifica a senha com o padrão MD5
+        QString queryStr = QString("%1").arg(QString(QCryptographicHash::hash(obj.getSenha().toUtf8(),QCryptographicHash::Md5).toHex()));
+        obj.setSenha(queryStr);
+
         this->persistencia->salvar(obj);
     } catch (QString &erro) { throw QString(erro); }
 }
 
-void UsuarioControle::alterar(const Usuario &obj)
+void UsuarioControle::alterar(Usuario &obj)
 {
     try
     {
         this->validaNome(obj.getNome());
         this->validaCpf(obj.getCpf());
-        this->validaSenha(obj.getSenha());
         this->validaEmail(obj.getEmail());
 
         this->persistencia->alterar(obj);
     } catch (QString &erro) { throw QString(erro); }
 }
 
-void UsuarioControle::excluir(const Usuario &obj)
+void UsuarioControle::excluir(Usuario &obj)
 {
     try
     {

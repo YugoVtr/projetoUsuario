@@ -6,12 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
+    <width>492</width>
     <height>607</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Usuario</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="imagens.qrc">
+    <normaloff>:/Imagens/user.png</normaloff>:/Imagens/user.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_3">
@@ -23,8 +33,27 @@
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="2">
         <widget class="QPushButton" name="pushButtonCancelar">
-         <property name="text">
+         <property name="toolTip">
           <string>Cancelar</string>
+         </property>
+         <property name="toolTipDuration">
+          <number>5000</number>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="imagens.qrc">
+           <normaloff>:/Imagens/delete.png</normaloff>:/Imagens/delete.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -95,6 +124,15 @@
                <height>25</height>
               </size>
              </property>
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="maxLength">
+              <number>11</number>
+             </property>
+             <property name="placeholderText">
+              <string>CPF</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -150,6 +188,12 @@
                <width>0</width>
                <height>25</height>
               </size>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+             <property name="placeholderText">
+              <string>Senha</string>
              </property>
             </widget>
            </item>
@@ -207,6 +251,9 @@
                <height>25</height>
               </size>
              </property>
+             <property name="placeholderText">
+              <string>Email</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -262,6 +309,15 @@
                <width>0</width>
                <height>25</height>
               </size>
+             </property>
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="maxLength">
+              <number>14</number>
+             </property>
+             <property name="placeholderText">
+              <string>Telefone</string>
              </property>
             </widget>
            </item>
@@ -319,6 +375,9 @@
                <height>25</height>
               </size>
              </property>
+             <property name="placeholderText">
+              <string>Nome</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -333,16 +392,31 @@
            <height>16777215</height>
           </size>
          </property>
-         <property name="text">
+         <property name="toolTip">
           <string>Salvar</string>
+         </property>
+         <property name="toolTipDuration">
+          <number>5000</number>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="imagens.qrc">
+           <normaloff>:/Imagens/salvar.png</normaloff>:/Imagens/salvar.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
       </layout>
-      <zorder>horizontalSpacer</zorder>
-      <zorder></zorder>
-      <zorder>pushButtonCancelar</zorder>
-      <zorder>pushButton_PersistirUsuario</zorder>
      </widget>
     </item>
     <item row="1" column="0">
@@ -359,6 +433,12 @@
      <widget class="QTableWidget" name="tableWidget_Listagem">
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="showGrid">
+       <bool>false</bool>
       </property>
       <attribute name="horizontalHeaderStretchLastSection">
        <bool>true</bool>
@@ -403,8 +483,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>461</width>
-     <height>21</height>
+     <width>492</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
