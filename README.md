@@ -21,6 +21,11 @@ O SGBD utilizado foi o SQLite, havendo um arquivo que armazena as informações 
 Em caso duvidas a respeito da integração do QtCreator com seu SGBD consulte 
 [Qt Documentation](http://doc.qt.io/qt-5/sql-connecting.html).
 
+```
+O SGBD pode ser facilmente alterado mudando 
+ou adicionando paramentros aos arquivo de configuração; 
+```
+
 ### Descrição
 
 O protótipo consiste em uma tela de CRUD basica no qual 
@@ -34,7 +39,7 @@ Foi utilizado também:
 
 ## Autores
 
-* **Vitor Miranda** - *Desenvolvedor* - [Git Home](https://github.com/Celsopdvj)
-* **Celso Vale** - *Desenvolvedor* - [Git Home](https://github.com/Yugovtr)
+* **Vitor Miranda** - *Desenvolvedor* - [Git Home](https://github.com/Yugovtr)
+* **Celso Vale** - *Desenvolvedor* - [Git Home](https://github.com/Celsopdvj)
 
 Veja tambem na lista de [contribuidores](https://github.com/yugovtr/projetoUsuario/contributors) que participam deste projeto. 
